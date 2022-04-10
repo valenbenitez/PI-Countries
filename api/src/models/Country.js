@@ -16,29 +16,29 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
 
-    Flag:{
+    flag:{
       type: DataTypes.STRING,
       allowNull:false,
     },
 
-    Continent:{
+    continent:{
       type: DataTypes.STRING,
       allowNull:false
     },
 
-    Capital:{
-      type: DataTypes.STRING,
-      allowNull:false
+    capital:{
+      defaultValue: 'not found',
+      type: DataTypes.STRING
     },
 
-    Subregion:{
+    cubregion:{
       type:DataTypes.STRING,
     },
 
-    Area:{
+    crea:{
       type:DataTypes.STRING
     },
-    Poblacion:{
+    poblacion:{
       type:DataTypes.STRING
     }
   },{timestamps : false});
