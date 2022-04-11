@@ -31,11 +31,11 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING
     },
 
-    cubregion:{
+    subregion:{
       type:DataTypes.STRING,
     },
 
-    crea:{
+    area:{
       type:DataTypes.STRING
     },
     poblacion:{
