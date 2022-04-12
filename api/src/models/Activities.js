@@ -18,5 +18,5 @@ module.exports = (sequelize) => {
     Temporada: {
       type: DataTypes.STRING,
     },
-  });
+  }, {timestamps: false});
 };

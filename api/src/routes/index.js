@@ -2,6 +2,8 @@ const { Router, express } = require("express");
 const axios = require("axios");
 const { Country } = require("../db");
 const { Activities } = require("../db");
+const { Op } = require("sequelize");
+
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -11,33 +13,27 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 router.get("/countries", async (req, res, next) => {
-  var paisesA = await axios({
-    method: "GET",
-    url: "https://restcountries.com/v3/all",
-  });
-  var misPaises = await Country.findAll();
-
-  if (misPaises.length === 0) {
-    var paises = paisesA.data.map((country) => {
-      return {
-        id: country.cca3,
-        name: country.name.common,
-        flag: country.flags ? country.flags[0] : "Flag not available",
-        continent: country.region,
-        capital: country.capital ? country.capital : "Capital not found",
-        subregion: country.subregion
-          ? country.subregion
-          : "Subregion not avaible",
-        area: country.area,
-        poblacion: country.population,
-      };
-    });
-  }
+  // var paisesA = await axios({
+  //   method: "GET",
+  //   url: "https://restcountries.com/v3/all",
+  // });
   try {
-    const aux = await Country.bulkCreate(paises);
-    res.json(aux);
+    if (req.query.name) {
+      var name = req.query.name;
+      name = name.charAt(0).toUpperCase() + name.slice(1);
+      var aux2 = await Country.findAll({ where: { name: name } });
+      if (aux2) {
+        return res.json(aux2);
+      } else {
+        var aux3 = await Country.findAll({ where:{name:{[Op.like]: `%${name}`}} });
+        return res.json(aux3);
+      }
+    } else {
+      var aux2 = await Country.findAll();
+      return res.json(aux2);
+    }
   } catch (error) {
-    next(error);
+    res.send("Country not found");
   }
 });
 
@@ -46,20 +42,20 @@ router.get("/countries", async (req, res, next) => {
 router.get("/countries/:idPais", async (req, res, next) => {
   try {
     var id = req.params.idPais.toUpperCase();
-    if (id.length === 3) {
+    if (id.length === 3 && id.match(/^[A-Z]+$/i)) {
       var pais = await Country.findByPk(id, {
         include: Activities,
       });
       if (!pais) {
         var paisApi = await axios({
-            method: "GET",
-            url: "https://restcountries.com/v2/alpha/" + id,
-          });
-          console.log(paisApi)
-          return res.json(paisApi);
+          method: "GET",
+          url: "https://restcountries.com/v2/alpha/" + id,
+        });
+        console.log(paisApi);
+        return res.json(paisApi);
       } else {
-          console.log(pais)
-        return res.json(pais)
+        console.log(pais);
+        return res.json(pais);
       }
     }
   } catch (error) {
