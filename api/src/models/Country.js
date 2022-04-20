@@ -17,7 +17,7 @@ module.exports = (sequelize) => {
     },
 
     flag:{
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull:false,
     },
 

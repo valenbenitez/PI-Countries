@@ -34,7 +34,7 @@ conn.sync({ force: true }).then(async() => {
         name: country.name.common,
         flag: country.flags ? country.flags[0] : "Flag not available",
         continent: country.region,
-        capital: country.capital ? country.capital : "Capital not found",
+        capital: country.capital ? country.capital[0] : "Capital not found",
         subregion: country.subregion
         ? country.subregion
         : "Subregion not avaible",
