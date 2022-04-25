@@ -8,7 +8,7 @@ export class CountryCard extends Component {
         return (
             <div>
                 <div className="div2">
-                    <img className="banderaCard" src={this.props.flag} />
+                    <img className="banderaCard" src={this.props.flag} alt="flag not found" />
                     <h2>{this.props.name}</h2>
                     {/* <p>{this.props.image}</p> */}
                     <p>{this.props.continent}</p>

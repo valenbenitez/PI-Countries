@@ -37,6 +37,7 @@ router.get("/countries", async (req, res, next) => {
       name = name.charAt(0).toUpperCase() + name.slice(1);
       var resultado = await Country.findAll({
         where: { name: { [Op.iLike]: `%${name}%` } },
+        include: Activities
       });
       if (resultado.length > 0) {
         return res.json(resultado);
@@ -101,6 +102,11 @@ router.post('/act', async (req, res, next) => {
   } catch (error) {
     next(error)
   }
+})
+
+router.get('/activities', async(req, res, next)=>{
+  const activities = await Activities.findAll({})
+  res.json(activities)
 })
 
 module.exports = router;

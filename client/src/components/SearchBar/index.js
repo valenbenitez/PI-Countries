@@ -1,38 +1,33 @@
-// import React from "react";
-// import { useDispatch, useSelector } from "react-redux"
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { searchCountry } from "../redux/actions";
+import { useHistory } from "react-router-dom";
+// import '/SearchBar.css'
 
-// export default function Home() {
-//   let [input, setInput] = React.useState({
-//     city: "",
-//   });
+export default function SearchBar() {
 
-//   // const paises = useSelector((state)=>)
+    const [buscar, setBuscar] = useState('')
+    const dispatch = useDispatch()
+    const history = useHistory()
 
-//   var dispatch = useDispatch()
+    function onSubmit(e){
+        e.preventDefault()
+        if(buscar.length === 0) return alert('Type name of country please')
+        dispatch(searchCountry(buscar))
+        history.push("/countries/"+buscar)
+        setBuscar('')
+    }
 
-//   function handleChange(e) {
-//     setInput({ city: e.target.value })
-//   }
+    function inputChange(e){
+        // e.preventDefautl()
+        setBuscar(e.target.value)
+    }
 
-//   function handleSubmit(e) {
-//     e.preventDefault()
-//     dispatch()
-//   }
+    return (
+        <form onSubmit={onSubmit}>
+            <input type='text' placeholder='Search country' onChange={inputChange} value={buscar}></input>
+            <input type='submit' value='Search'></input>
+        </form>
+    )
+}
 
-//   return (
-//     <div>
-//       <form>
-//         <nav>
-//           <input
-//             onChange={(e) => handleChange(e)}
-//             type={"text"}
-//             name={"city"}
-//             value={input.city}
-//             placeholder="Search city"
-//           ></input>
-//           <button onSubmit={(e) => handleSubmit(e)}>Search</button>
-//         </nav>
-//       </form>
-//     </div>
-//   );
-// }

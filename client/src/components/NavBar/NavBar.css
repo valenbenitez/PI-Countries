@@ -1,0 +1,13 @@
+.navBarConteiner{
+    background-color: rgb(163, 161, 161);
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    align-items: baseline;
+    justify-content: space-around;
+}
+/* 
+.navCountries{
+    display: block;
+    margin-right: 50%;
+} */
