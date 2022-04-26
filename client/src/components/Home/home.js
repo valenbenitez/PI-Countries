@@ -73,8 +73,8 @@ export default function Countries() {
             <div className="filtersAndSorts">
                 <div>
                     <span>Order by population</span>
-                    <select onChange={(e) => handleSelectPop(e)} >
-                        <option>All</option>
+                    <select value='All' onChange={(e) => handleSelectPop(e)} >
+                        <option >All</option>
                         <option value='asc'>ASC</option>
                         <option value='desc'>DESC</option>
                     </select>
@@ -83,7 +83,7 @@ export default function Countries() {
                 <div>
                     <span>Order by name</span>
                     <select onChange={(e) => handleSelectName(e)}>
-                        <option>All</option>
+                        <option >All</option>
                         <option value='az'>A-Z</option>
                         <option value='za'>Z-A</option>
                     </select>
