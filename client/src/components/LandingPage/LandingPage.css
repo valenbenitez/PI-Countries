@@ -1,0 +1,48 @@
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+}
+
+.divCont {
+  background-image: url("../../img/avion-en-las-nubes-artwork_3840x2880_xtrafondos.com.jpg");
+  background-position: center center;
+  padding: 0%;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  /* position: relative; */
+  background-size: cover;
+}
+
+.titleB {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 580px;
+  font-size: 70px;
+  margin-bottom: 80%;
+}
+
+/* .titleB:hover{
+    color: antiquewhite;
+} */
+
+.buttonG {
+  position: absolute;
+  top: 75%;
+  left: 38%;
+  margin: 25px 0 0 35px;
+  border-radius: 5px;
+  border: 1px solid lightskyblue;
+  padding: 20px 165px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  font-weight:bold;
+  background-color: lightskyblue;
+  color:snow;
+}
+
+.buttonG:hover{
+    background-color:white;
+    color: black;
+}

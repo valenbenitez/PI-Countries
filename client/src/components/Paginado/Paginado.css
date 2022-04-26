@@ -1,0 +1,28 @@
+.paginadoCont {
+  display:flex;
+  flex-direction: row;
+  list-style:none
+}
+
+.liNumber1{
+  cursor: pointer;
+  /* color: wheat; */
+}
+
+.liNum1:hover{
+  /* cursor: pointer; */
+  transform: scale(1.2);
+}
+
+.prevAndNext{
+  background-color:darkgray;
+  border-radius: 5px;
+  cursor: pointer;
+  padding-left:10px;
+  padding-right:10px;
+  color: white;
+}
+
+.prevAndNext:hover{
+  transform: scale(1.2);
+}

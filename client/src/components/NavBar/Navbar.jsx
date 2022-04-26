@@ -9,8 +9,8 @@ export default function NavBar() {
         <div className="navBarConteiner">
             {/* <nav> */}
                 <div className="navCountries">Countries</div>
-                <div><Link to='/countries'>Home</Link></div>
-                <div><Link to='/create'>Crear actividad</Link></div>
+                <div><Link className="lin" to='/countries'>Home</Link></div>
+                <div><Link className="lin" to='/create'>Crear actividad</Link></div>
                 <SearchBar/>
             {/* </nav> */}
         </div>

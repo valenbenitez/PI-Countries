@@ -1,9 +1,53 @@
-.banderaCard{
-    width: 20%;
-    
+.contenedorCont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url('../../img/earth-1.jpg'); */
 }
 
-.div2{
-    display:flexbox;
+.cardConteiner{
+    background-color:darkgray;
+    width: 15vw;
+    height: 15rem;
+    margin: 1px 0 2px 0;
+    display: flex;
+    font-size: large;
+    color: black;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    padding-bottom: 16px;
+    border-radius: 15px 15px 15px 15px;
+    margin-top: 30px;
+    box-shadow: 24px -11px 29px -7px rgba(0,0,0,0.65);
+    transition-duration: 0.8s;
+}
 
+.cardConteiner:hover{
+    transform: scale(1.1);
+    /* animation-duration: 5s; */
+}
+
+.contContent{
+ display: flex;
+ flex-direction: column;
+ text-align: start;
+ justify-content: flex-end;
+ height: 50%;   
+}
+
+.imgCard{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    margin-left: 68px;
+    width: 40%;
+    /* margin-top:5px */
+}
+
+.content{
+    padding-left: 15px;
+    margin: 1.2rem 0 0 0;
+    text-decoration: none;
 }

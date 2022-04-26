@@ -9,6 +9,7 @@ export const ORDER_BY_POP = "ORDER_BY_POP"
 export const ORDER_BY_NAME = "ORDER_BY_NAME"
 export const FILTER_BY_CONT = "FILTER_BY_CONT"
 export const GET_ACTIVITIES = "GET_ACTIVITIES"
+export const FILTER_BY_ACT = "FILTER_BY_ACT"
 
 
 export const getAllCountries = () => {
@@ -106,6 +107,13 @@ export function getActivities() {
       type: GET_ACTIVITIES,
       payload: activitiesSave
     })
+  }
+}
+
+export function filterByAct(payload){
+  return{
+    type: FILTER_BY_ACT,
+    payload
   }
 }
 

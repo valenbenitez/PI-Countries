@@ -8,14 +8,15 @@ import {
     ORDER_BY_POP,
     ORDER_BY_NAME,
     FILTER_BY_CONT,
-    GET_ACTIVITIES
+    GET_ACTIVITIES,
+    FILTER_BY_ACT
 } from "../actions/index"
 
 const initialState = {
     countries: [],
     country: {},
     countriesCopy: [],
-    activities:[]
+    activities: []
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -106,9 +107,18 @@ const rootReducer = (state = initialState, action) => {
             }
 
         case GET_ACTIVITIES:
-            return{
+            return {
                 ...state,
-                activities:action.payload
+                activities: action.payload
+            }
+
+        case FILTER_BY_ACT:
+            var filterByAct = state.countriesCopy
+            var actividadFiltrada = action.payload === 'All' ? filterByAct : filterByAct.filter(e => { return e.activities.find(e => { return e.name === action.payload }) })
+
+            return {
+                ...state,
+                countries: actividadFiltrada
             }
 
         default:

@@ -6,15 +6,17 @@ import './card.css'
 export class CountryCard extends Component {
     render() {
         return (
-            <div>
-                <div className="div2">
-                    <img className="banderaCard" src={this.props.flag} alt="flag not found" />
-                    <h2>{this.props.name}</h2>
-                    {/* <p>{this.props.image}</p> */}
-                    <p>{this.props.continent}</p>
-                    para mas detalle del pokemon: <Link to={`/countries/${this.props.id}`}>Click aqui</Link>
+            <div className="contenedorCont">
+                <div className="cardConteiner">
+
+                    <h3>{this.props.name}</h3>
+                    <div className="contContent">
+                        <img className="imgCard" src={this.props.flag} alt="flag not found" />
+                        <h5 className="content">{this.props.continent}</h5>
+                        <h5 className="content">Detalle: <Link className="content" to={`/countries/${this.props.id}`}>Click aqui</Link></h5>
+                    </div>
+
                 </div>
-                    <br/>
             </div>
         )
     }

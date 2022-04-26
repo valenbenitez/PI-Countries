@@ -24,32 +24,33 @@ const CountryDetail = (props) => {
     // }
 
     return (
-        <div>
+        <div className="div1">
             <NavBar />
-            <img className="banderaDetail" src={country.flag} alt="flag not found" />
-            <h3>Pais: {Object.keys(country).length && country.name}</h3>
-            <br />
-            <div>
-                <h3>Capital: {Object.keys(country).length && country.capital}</h3>
-                <br />
-                <h3>Id: {Object.keys(country).length && country.id}</h3>
-                <br />
-                <h3>Continente: {Object.keys(country).length && country.continent}</h3>
-                <br />
-                <h3>Poblacion: {Object.keys(country).length && country.poblacion}</h3>
-                <br />
-                <h3>Area: {Object.keys(country).length && country.area} km²</h3>
-                <br />
-                {/* <h3>Actividades: {country.activities.length > 0 && country.activities.map(a => (
-                    <p key={a.id}>{a.name}</p>
-                ))}</h3> */}
-                <h3>Actividades: {country.activities ? country.activities.map(a => (
-                    <p key={a.id}>{a.name}</p>
-                ))
-                    : <p>Loading...</p>
-            }</h3>
-            </div>
+            <div className="detailContainer">
 
+                <img className="banderaDetail" src={country.flag} alt="flag not found" />
+
+                <div className="detailContent">
+                    <h3 className="nameDetail">Pais: {Object.keys(country).length && country.name}</h3>
+
+                    <h3 className="detailC">Capital: {Object.keys(country).length && country.capital}</h3>
+
+                    <h3 className="detailC">Id: {Object.keys(country).length && country.id}</h3>
+
+                    <h3>Continente: {Object.keys(country).length && country.continent}</h3>
+
+                    <h3 className="detailC">Poblacion: {Object.keys(country).length && country.poblacion}</h3>
+
+                    <h3 className="detailC">Area: {Object.keys(country).length && country.area} km²</h3>
+
+                    <h3 className="detailC">Actividades: {country.activities ? country.activities.map(a => (
+                        <p key={a.id}>{a.name}</p>
+                    ))
+                        : <p>Loading...</p>
+                    }</h3>
+                </div>
+
+            </div>
         </div>
     )
 }
