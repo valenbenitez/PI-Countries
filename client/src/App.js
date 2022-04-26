@@ -11,18 +11,19 @@ import ErrorComp from './components/ErrorComp/ErrorComp';
 function App() {
   return (
     <React.Fragment>
+      <switch>
+        {/* <Route path={'*'} component={ErrorComp} /> */}
+        <Route exact path={'/'} component={initPage} />
 
-      <Route exact path={'/'} component={initPage}/>
+        <Route exact path={'/countries'} component={NavBar}></Route>
 
-      <Route exact path={'/countries'} component={NavBar}></Route>
+        <Route exact path={'/countries'} component={Home} />
 
-      <Route exact path={'/countries'} component={Home}/>
+        <Route exact path={'/countries/:id'} component={CountryDetail} />
 
-      <Route exact path={'/countries/:id'} component={CountryDetail}/>
+        <Route exact path={'/create'} component={Form} />
 
-      <Route exact path={'/create'} component={Form}/>
-
-      <Route path={'*'} component={ErrorComp}/>
+      </switch>
     </React.Fragment>
   );
 }
