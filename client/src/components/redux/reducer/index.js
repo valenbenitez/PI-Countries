@@ -25,8 +25,8 @@ const rootReducer = (state = initialState, action) => {
         case GET_ALL_COUNTRIES:
             return {
                 ...state,
-                countries: action.payload,
-                countriesCopy: action.payload
+                countries: action.payload.slice(),
+                countriesCopy: action.payload.slice()
             }
 
         case GET_COUNTRY:
@@ -50,6 +50,13 @@ const rootReducer = (state = initialState, action) => {
                 ...state
             }
         case ORDER_BY_POP:
+
+            if(action.payload === 'All'){
+                return {
+                    ...state,
+                    countries: state.countriesCopy
+                }
+            }
             let orderByPp = action.payload === 'asc' ? state.countries.sort((a, b) => {
                 if (a.poblacion > b.poblacion) {
                     return 1;
@@ -58,7 +65,7 @@ const rootReducer = (state = initialState, action) => {
                     return -1;
                 }
                 return 0
-            }) :
+            }) : 
                 state.countries.sort((a, b) => {
                     if (a.poblacion > b.poblacion) {
                         return -1;
@@ -76,6 +83,13 @@ const rootReducer = (state = initialState, action) => {
             }
 
         case ORDER_BY_NAME:
+            if(action.payload === 'All'){
+                return {
+                    ...state,
+                    countries: state.countriesCopy
+                }
+            }
+            
             let orderByNm = action.payload === 'az' ? state.countries.sort((a, b) => {
                 if (a.name < b.name) {
                     return -1
