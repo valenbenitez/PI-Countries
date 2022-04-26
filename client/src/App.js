@@ -6,6 +6,7 @@ import Home from './components/Home/home';
 import CountryDetail from './components/CountriesDetail';
 import NavBar from './components/NavBar/Navbar';
 import Form from './components/Form';
+import ErrorComp from './components/ErrorComp/ErrorComp';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
 
       <Route exact path={'/create'} component={Form}/>
 
+      <Route path={'*'} component={ErrorComp}/>
     </React.Fragment>
   );
 }
