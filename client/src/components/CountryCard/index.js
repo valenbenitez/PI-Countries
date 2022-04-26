@@ -12,7 +12,7 @@ export class CountryCard extends Component {
                     <h3>{this.props.name}</h3>
                     <div className="contContent">
                         <img className="imgCard" src={this.props.flag} alt="flag not found" />
-                        <h5 className="content">{this.props.continent}</h5>
+                        <h5 className="content">Continente: {this.props.continent}</h5>
                         <h5 className="content">Detalle: <Link className="content" to={`/countries/${this.props.id}`}>Click aqui</Link></h5>
                     </div>
 

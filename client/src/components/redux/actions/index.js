@@ -10,11 +10,13 @@ export const ORDER_BY_NAME = "ORDER_BY_NAME"
 export const FILTER_BY_CONT = "FILTER_BY_CONT"
 export const GET_ACTIVITIES = "GET_ACTIVITIES"
 export const FILTER_BY_ACT = "FILTER_BY_ACT"
+export const RESET_COUNTRY = "RESET_COUNTRY"
 
 
 export const getAllCountries = () => {
   return function (dispatch) {
-    axios.get("http://localhost:3001/countries")
+    // axios.get("http://localhost:3001/countries")
+    axios.get("https://back-pi-countries3.herokuapp.com/countries")
       .then((countries) => {
         dispatch({
           type: GET_ALL_COUNTRIES,
@@ -27,7 +29,7 @@ export const getAllCountries = () => {
 export function searchCountry(buscar) {
   return async function (dispatch) {
     try {
-      var busqueda = await axios.get('http://localhost:3001/countries?name=' + buscar)
+      var busqueda = await axios.get('https://back-pi-countries3.herokuapp.com/countries?name=' + buscar)
       return dispatch({
         type: SEARCH_COUNTRY,
         payload: busqueda.data[0]
@@ -41,7 +43,8 @@ export function searchCountry(buscar) {
 
 export const getCountry = (id) => {
   return function (dispatch) {
-    axios.get(`http://localhost:3001/countries/${id}`)
+    // axios.get(`http://localhost:3001/countries/${id}`)
+    axios.get(`https://back-pi-countries3.herokuapp.com/countries/${id}`)
       .then((country) => {
         dispatch({
           type: GET_COUNTRY,
@@ -53,7 +56,7 @@ export const getCountry = (id) => {
 
 export const getCountryQuery = (id) => {
   return function (dispatch) {
-    axios.get(`http://localhost:3001/countries?name=${id}`)
+    axios.get(`https://back-pi-countries3.herokuapp.com/countries?name=${id}`)
       .then((country) => {
         dispatch({
           type: GET_COUNTRY_QUERY,
@@ -66,7 +69,8 @@ export const getCountryQuery = (id) => {
 export function postActivity(payload) {
   return async function (dispatch) {
     try {
-      await axios.post('http://localhost:3001/act', payload)
+      // await axios.post('http://localhost:3001/act', payload)
+      await axios.post('https://back-pi-countries3.herokuapp.com/act',payload)
       return dispatch({
         type: POST_ACTIVITY,
       })
@@ -100,7 +104,7 @@ export function filterByCont(payload) {
 
 export function getActivities() {
   return async function (dispatch) {
-    const activitiesSave = (await axios.get('http://localhost:3001/activities')).data
+    const activitiesSave = (await axios.get('https://back-pi-countries3.herokuapp.com/activities')).data
     // const activitiesGuardadas = activitiesSave.data
     //  console.log(activitiesSave)
     dispatch({
@@ -110,10 +114,16 @@ export function getActivities() {
   }
 }
 
-export function filterByAct(payload){
-  return{
+export function filterByAct(payload) {
+  return {
     type: FILTER_BY_ACT,
     payload
+  }
+}
+
+export function resetCountryDetail(){
+  return{
+    type: RESET_COUNTRY,
   }
 }
 

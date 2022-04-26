@@ -1,7 +1,7 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import NavBar from "../NavBar/Navbar"
-import { getCountry, /*getCountryQuery, searchCountry*/ } from "../redux/actions/index"
+import { getCountry, resetCountryDetail /*getCountryQuery, searchCountry*/ } from "../redux/actions/index"
 import './detail.css'
 
 const CountryDetail = (props) => {
@@ -12,10 +12,18 @@ const CountryDetail = (props) => {
 
     // console.log(country)
 
+    // React.useEffect(()=>{
+    //     dispatch(getCountry(props.match.params.id))
+
+    //     return () => { dispatch(resetCountryDetail()) }
+    // },[]) //eslint-disable-line
+
     React.useEffect(() => {
         // console.log(country)
+        // dispatch(getCountry(props.match.params.id))
+
         dispatch(getCountry(props.match.params.id))
-        // dispatch(searchCountry(props.match.params.id))
+
     }, [country, dispatch, props.match.params.id]) //eslint-disable-line
 
     // console.log(props.match)

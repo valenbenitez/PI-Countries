@@ -1,0 +1,11 @@
+.divInputForm {
+  /* display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px; */
+  /* margin-bottom: 1px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

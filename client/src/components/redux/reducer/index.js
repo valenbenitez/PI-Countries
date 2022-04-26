@@ -9,7 +9,8 @@ import {
     ORDER_BY_NAME,
     FILTER_BY_CONT,
     GET_ACTIVITIES,
-    FILTER_BY_ACT
+    FILTER_BY_ACT,
+    RESET_COUNTRY
 } from "../actions/index"
 
 const initialState = {
@@ -119,6 +120,12 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 countries: actividadFiltrada
+            }
+
+        case RESET_COUNTRY:
+            return{
+                ...state,
+                country:{}
             }
 
         default:
