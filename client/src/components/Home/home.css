@@ -1,3 +1,7 @@
+.Pape{
+  background: linear-gradient(90deg, rgba(26,26,26,1) 0%, rgba(41,41,41,1) 49%, rgba(39,39,39,1) 100%);;
+}
+
 .divGen {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -17,6 +21,15 @@
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  color: white;
+  font-weight: bold;
+  background-color: darkgray;
+}
+
+.selecti{
+  border-radius: 5px;
+  background-color: darkgray;
+  color: white;
 }
 
 .divPag{

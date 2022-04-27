@@ -4,14 +4,21 @@
   list-style:none
 }
 
-.liNumber1{
+.liNum{
   cursor: pointer;
+  border-radius: 3px;
+  padding: 5px;
+  height: 40px;
+  animation-duration: 0.5s;
+  background-color: white;
   /* color: wheat; */
 }
 
 .liNum1:hover{
   /* cursor: pointer; */
   transform: scale(1.2);
+  background-color: black;
+  color: white;
 }
 
 .prevAndNext{
@@ -25,4 +32,6 @@
 
 .prevAndNext:hover{
   transform: scale(1.2);
+  background-color: black;
+  color: white;
 }

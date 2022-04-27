@@ -69,11 +69,11 @@ export default function Countries() {
     }
     // console.log(this.props.id)
     return (
-        <div >
+        <div className="Pape" >
             <div className="filtersAndSorts">
                 <div>
-                    <span>Order by population</span>
-                    <select  onChange={(e) => handleSelectPop(e)} >
+                    <span>Order by population </span>
+                    <select className='selecti' onChange={(e) => handleSelectPop(e)} >
                         <option value='All' >All</option>
                         <option value='asc'>ASC</option>
                         <option value='desc'>DESC</option>
@@ -81,17 +81,17 @@ export default function Countries() {
                 </div>
 
                 <div>
-                    <span>Order by name</span>
-                    <select onChange={(e) => handleSelectName(e)}>
-                        <option value='All'>All</option>
+                    <span>Order by name </span>
+                    <select className='selecti' onChange={(e) => handleSelectName(e)}>
+                        <option value='All' >All</option>
                         <option value='az'>A-Z</option>
                         <option value='za'>Z-A</option>
                     </select>
                 </div>
 
                 <div>
-                    <label>Filter by continent</label>
-                    <select onChange={(e) => handleSelectCont(e)}>
+                    <label>Filter by continent </label>
+                    <select className='selecti' onChange={(e) => handleSelectCont(e)}>
                         <option value='All' >All</option>
                         <option value='Africa' >Africa</option>
                         {/* <option value='Antarctica'>Antartida</option> */}
@@ -103,8 +103,8 @@ export default function Countries() {
                 </div>
 
                 <div>
-                    <label>Filter by actividades</label>
-                    <select onChange={(e) => handleSelectFilterAct(e)}>
+                    <label>Filter by actividades </label>
+                    <select className='selecti' onChange={(e) => handleSelectFilterAct(e)}>
                         <option value='All'>All</option>
                         {activities.length && activities.map(el => {
                             return (<option value={el.name}>{el.name}</option>)

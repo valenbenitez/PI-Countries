@@ -8,23 +8,19 @@ const CountryDetail = (props) => {
 
     var dispatch = useDispatch()
     var country = useSelector((state) => state.country)
-    // var actividades = useSelector((state) =>state.activities)
-
-    // console.log(country)
-
-    // React.useEffect(()=>{
-    //     dispatch(getCountry(props.match.params.id))
-
-    //     return () => { dispatch(resetCountryDetail()) }
-    // },[]) //eslint-disable-line
 
     React.useEffect(() => {
-        // console.log(country)
-        // dispatch(getCountry(props.match.params.id))
-
         dispatch(getCountry(props.match.params.id))
 
-    }, [country, dispatch, props.match.params.id]) //eslint-disable-line
+        return () => { dispatch(resetCountryDetail()) }
+    }, []) //eslint-disable-line
+
+    // React.useEffect(() => {
+    //      console.log(country)
+    //      dispatch(getCountry(props.match.params.id))
+    //     dispatch(getCountry(props.match.params.id))
+
+    // }, [country, dispatch, props.match.params.id]) //eslint-disable-line
 
     // console.log(props.match)
     // if (!Object.keys(country).length) {
@@ -51,11 +47,18 @@ const CountryDetail = (props) => {
 
                     <h3 className="detailC">Area: {Object.keys(country).length && country.area} km²</h3>
 
-                    <h3 className="detailC">Actividades: {country.activities ? country.activities.map(a => (
-                        <p key={a.id}>{a.name}</p>
-                    ))
-                        : <p>Loading...</p>
-                    }</h3>
+                    <div >
+                        <h3 className="detailC">Actividades: {country.activities ? country.activities.map(a => (
+                            <div className="Pp">
+                                <p key={a.id}>Nombre de la act: {a.name}</p>
+                                <p key={a.id}>Dificultad: {a.dificultad}</p>
+                                <p key={a.id}>Duracion: {a.duracion}HS</p>
+                                <p key={a.id}>Temporada: {a.temporada}</p>
+                            </div>
+                        ))
+                            : <p>Loading...</p>
+                        }</h3>
+                    </div>
                 </div>
 
             </div>
@@ -64,3 +67,9 @@ const CountryDetail = (props) => {
 }
 
 export default CountryDetail
+
+
+
+// dificultad: 3,
+//           duracion: 6,
+//           temporada:
