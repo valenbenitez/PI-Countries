@@ -46,6 +46,7 @@ export default function Countries() {
     function handleSelectCont(e) {
         // e.preventDefault()
         dispatch(filterByCont(e.target.value))
+        setPagina(1)
         // setCountries(e.target.value)
     }
 
@@ -112,15 +113,6 @@ export default function Countries() {
                     </select>
                 </div>
             </div>
-            <div className="divPag">
-                <Paginacion
-                    porPagina={porPagina}
-                    countries={countries.length}
-                    paginado={paginado}
-                    previousPage={previousPage}
-                    nextPage={nextPage}
-                />
-            </div>
 
             <div className="divGen">
                 {countries && currentCountry.map((coun) => (
@@ -138,6 +130,15 @@ export default function Countries() {
                 ))}
             </div>
 
+            <div className="divPag">
+                <Paginacion
+                    porPagina={porPagina}
+                    countries={countries.length}
+                    paginado={paginado}
+                    previousPage={previousPage}
+                    nextPage={nextPage}
+                />
+            </div>
 
         </div>
     )

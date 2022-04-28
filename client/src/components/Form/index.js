@@ -6,6 +6,7 @@ import NavBar from '../NavBar/Navbar'
 import { getAllCountries, postActivity } from '../redux/actions'
 // import { useEffect } from 'react'
 import './form.css'
+import {Button} from "react-bootstrap"
 
 // name: "",
 // dificultad: 1,
@@ -22,6 +23,12 @@ function validate(input) {
     }
     if (!input.duracion) {
         errors.duracion = "Debe completar este campo"
+    }
+    if(input.duracion < 1){
+        errors.duracion = "Valor debe ser mayor a 1"
+    }
+    if(input.duracion > 24){
+        errors.duracion = "Debe ser menor a 24hs"
     }
     if (!input.temporada) {
         errors.temporada = "Debe completar este campo"
@@ -74,16 +81,27 @@ const Form = () => {
         }))
     }
 
+
+    // if(input.Country.includes(e.target.value)){
+    //     alert('ejemplo')
+    // }
+
     function handleSelect(e) {
-        setInput({
-            ...input,
-            Country: [...input.Country, e.target.value.split(',')[0]]
-        })
+
+        // if(!input.Country.includes(e.target.value))
+            setInput({
+                ...input,
+                Country: [...input.Country, e.target.value.split(',')[0]]
+            })
+        // }else{
+        //     alert("ejemplo")
+        // }
+
     }
 
     function handleSubmit(e) {
         e.preventDefault()
-        if (input.name === "" || input.duracion === "" || input.temporada === "" || input.Country.length === 0) return alert('Completar todos los campos porfavor')
+        if (input.name === "" || input.duracion === "" || input.temporada === "" || input.Country.length === 0 || input.duracion < 1 || input.duracion > 24) return alert('Completar todos los campos porfavor')
 
         dispatch(postActivity(input))
         alert('Actividad creada correctamente :)')
@@ -118,7 +136,7 @@ const Form = () => {
                             />
 
                         </div>
-                        <div>
+                        <div className="rangeFrm">
                             <InputForm
                                 tipo="range"
                                 min="1"
@@ -149,7 +167,7 @@ const Form = () => {
                         <div>
                             {errors.temporada && <label className='labelError'>{errors.temporada}</label>}
                             <label>Estacion: </label>
-                            <select
+                            <select className="optionCn"
                                 name="temporada"
                                 value={input.temporada}
                                 onChange={(e) => handleChange(e)}
@@ -166,16 +184,21 @@ const Form = () => {
 
                         <div>
                             <label>Paises: </label>
-                            <select onChange={e => handleSelect(e)}>
+                            <select className="optionCn" onChange={e => handleSelect(e)}>
                                 {/* <option>Paises</option> */}
                                 {countries.map((pai) => (
                                     <option value={`${pai.id},${pai.name}`}>{pai.name}</option>
                                 ))}
                             </select>
                             {/* NO MUESTRA NOMBRE */}
-                            <div>
+                            {/* <div>
                                 {input.Country.map(el => <button type='reset' onClick={() => handleDelete(el)}>{el} | X</button>)}
+                            </div> */}
+                            <div>
+                                {input.Country.map(el => <Button variant="outline-danger" type='reset' onClick={()=> handleDelete(el)}>{el} | X</Button> )}
                             </div>
+
+                             {/* {' '} */}
                             <input className='buttonSubmit' type='submit' value='Submit'></input>
                         </div>
                     </form>

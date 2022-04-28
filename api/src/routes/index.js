@@ -104,9 +104,26 @@ router.post('/act', async (req, res, next) => {
   }
 })
 
-router.get('/activities', async(req, res, next)=>{
+router.get('/activities', async (req, res, next) => {
   const activities = await Activities.findAll({})
   res.json(activities)
+})
+
+router.delete('/delete/:id', (req, res, next) => {
+  console.log('ruta delete')
+  try {
+    const { id } = req.params
+    const Del = Activities.destroy({
+      where: { id: id }
+    })
+    res.json({ msg: 'Actividad borrada correctamente' })
+
+  } catch (error) {
+    console.log(error)
+    res.json({ error: 'fallo el borrado' })
+  }
+
+
 })
 
 module.exports = router;

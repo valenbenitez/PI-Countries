@@ -7,6 +7,8 @@ import CountryDetail from './components/CountriesDetail';
 import NavBar from './components/NavBar/Navbar';
 import Form from './components/Form';
 import ErrorComp from './components/ErrorComp/ErrorComp';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
