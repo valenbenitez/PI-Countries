@@ -5,6 +5,17 @@
   margin-top: 15px;
 }
 
+@media screen and (max-width: 450px){
+  .paginadoCont{
+    display: inline-flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    padding:  30px;
+    justify-content: center;
+    gap: 3px;
+  }
+}
+
 .liNum{
   cursor: pointer;
   border-radius: 3px;

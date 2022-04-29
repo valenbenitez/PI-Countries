@@ -6,10 +6,32 @@
   margin: 15px;
 }
 
+@media screen and (max-width: 450px) {
+  .contenedorCont {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .cardConteiner{
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+  }
+  .contContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    gap: 50px;
+    margin-top: 15px;
+  }
+
+  
+}
+
 .cardConteiner {
   background-color: darkgray;
-  width: 15vw;
-  height: 18rem;
+  /* width: 15vw; */
+  /* height: 18rem; */
   margin: 1px 0 2px 0;
 
   display: flex;
@@ -42,13 +64,13 @@
 }
 
 .imgCard {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-left: 68px;
-  margin-bottom: 15px;
-  width: 40%;
+  display: block;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* flex-wrap: wrap; */
+  /* margin-left: 68px; */
+  /* margin-bottom: 15px; */
+  width: 100%;
 }
 
 .content {

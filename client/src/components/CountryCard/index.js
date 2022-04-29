@@ -12,7 +12,7 @@ export class CountryCard extends Component {
 
                 <div className="cardConteiner">
 
-                    <h3 >{this.props.name}</h3>
+                    <h3 className="h3" >{this.props.name}</h3>
 
                     <div className="contContent">
 

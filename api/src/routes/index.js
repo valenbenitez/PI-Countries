@@ -109,8 +109,10 @@ router.get('/activities', async (req, res, next) => {
   res.json(activities)
 })
 
+
+
 router.delete('/delete/:id', (req, res, next) => {
-  console.log('ruta delete')
+  // console.log('ruta delete')
   try {
     const { id } = req.params
     const Del = Activities.destroy({

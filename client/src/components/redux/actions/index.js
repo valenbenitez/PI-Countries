@@ -11,6 +11,7 @@ export const FILTER_BY_CONT = "FILTER_BY_CONT"
 export const GET_ACTIVITIES = "GET_ACTIVITIES"
 export const FILTER_BY_ACT = "FILTER_BY_ACT"
 export const RESET_COUNTRY = "RESET_COUNTRY"
+export const DELETE_COUNTRY = "DELETE_COUNTRY"
 
 
 export const getAllCountries = () => {
@@ -124,6 +125,13 @@ export function filterByAct(payload) {
 export function resetCountryDetail(){
   return{
     type: RESET_COUNTRY,
+  }
+}
+
+export function deleteAct(payload){
+  return {
+    type: DELETE_COUNTRY,
+    payload
   }
 }
 

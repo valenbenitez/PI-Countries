@@ -24,7 +24,7 @@ export default function NavBar() {
       <Nav.Item>
         <Nav.Link href='/create'>Crear actividad</Nav.Link>
       </Nav.Item>
-      <SearchBar className="search"/>
+      <SearchBar /*className="search"*/ />
     </Nav>
   );
 }

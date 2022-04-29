@@ -8,6 +8,7 @@ const CountryDetail = (props) => {
 
     var dispatch = useDispatch()
     var country = useSelector((state) => state.country)
+    var activities = useSelector((state)=>state.activities)
 
     React.useEffect(() => {
         dispatch(getCountry(props.match.params.id))
@@ -15,6 +16,9 @@ const CountryDetail = (props) => {
         return () => { dispatch(resetCountryDetail()) }
     }, []) //eslint-disable-line
 
+    function onClickDel(e){
+        dispatch()
+    }
     // React.useEffect(() => {
     //      console.log(country)
     //      dispatch(getCountry(props.match.params.id))
@@ -54,6 +58,7 @@ const CountryDetail = (props) => {
                                 <p key={a.id}>Dificultad: {a.dificultad}</p>
                                 <p key={a.id}>Duracion: {a.duracion}HS</p>
                                 <p key={a.id}>Temporada: {a.temporada}</p>
+                                <button value={a.id} onClick={(e) => onClickDel(e)}>Borrar actividad</button>
                             </div>
                         ))
                             : <p>Loading...</p>

@@ -1,3 +1,7 @@
+.searchDiv{
+  
+}
+
 
 .buttonSrc {
   /* display: flex; */
@@ -27,9 +31,22 @@
     padding: 2px 15px;
     border-radius: 5px;
     margin-left: 1000px;
+    border: 1px solid white;
+}
+
+@media screen and (max-width: 450px) {
+  .searchInput{
+    display: block;
+    margin:10px auto;
+  }
+  .searchDiv{
+    width: 100%;
+  }
+  
 }
 
 .searchInput:hover{
+  color: white;
   background-color: black;
   color: #fff;
 }
