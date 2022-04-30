@@ -30,7 +30,7 @@ export const getAllCountries = () => {
 export function deleteAct(payload) {
   return async function(dispatch){
     try {
-      let actDelete = await axios.delete('localhost:3001/delete/'+payload)
+      let actDelete = await axios.delete('https://back-pi-countries3.herokuapp.com/delete/'+payload)
       return dispatch({
         type: DELETE_COUNTRY,
         payload: actDelete
