@@ -27,6 +27,20 @@ export const getAllCountries = () => {
   };
 };
 
+export function deleteAct(payload) {
+  return async function(dispatch){
+    try {
+      let actDelete = await axios.delete('localhost:3001/delete/'+payload)
+      return dispatch({
+        type: DELETE_COUNTRY,
+        payload: actDelete
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
 export function searchCountry(buscar) {
   return async function (dispatch) {
     try {
@@ -71,7 +85,7 @@ export function postActivity(payload) {
   return async function (dispatch) {
     try {
       // await axios.post('http://localhost:3001/act', payload)
-      await axios.post('https://back-pi-countries3.herokuapp.com/act',payload)
+      await axios.post('https://back-pi-countries3.herokuapp.com/act', payload)
       return dispatch({
         type: POST_ACTIVITY,
       })
@@ -122,18 +136,13 @@ export function filterByAct(payload) {
   }
 }
 
-export function resetCountryDetail(){
-  return{
+export function resetCountryDetail() {
+  return {
     type: RESET_COUNTRY,
   }
 }
 
-export function deleteAct(payload){
-  return {
-    type: DELETE_COUNTRY,
-    payload
-  }
-}
+
 
 // export const getCountry = (id) => (dispatch) => {
 //   return fetch(`http://localhost:3001/countries/:${id}`)

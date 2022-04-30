@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import NavBar from "../NavBar/Navbar"
 import { getCountry, resetCountryDetail /*getCountryQuery, searchCountry*/ } from "../redux/actions/index"
 import './detail.css'
+import { deleteAct } from "../redux/actions/index"
 
 const CountryDetail = (props) => {
 
@@ -17,7 +18,7 @@ const CountryDetail = (props) => {
     }, []) //eslint-disable-line
 
     function onClickDel(e){
-        dispatch()
+        dispatch(deleteAct(e.target.value))
     }
     // React.useEffect(() => {
     //      console.log(country)
@@ -39,13 +40,13 @@ const CountryDetail = (props) => {
                 <img className="banderaDetail" src={country.flag} alt="flag not found" />
 
                 <div className="detailContent">
-                    <h3 className="nameDetail">Pais: {Object.keys(country).length && country.name}</h3>
+                    <h3 className="detailC">Pais: {Object.keys(country).length && country.name}</h3>
 
                     <h3 className="detailC">Capital: {Object.keys(country).length && country.capital}</h3>
 
-                    <h3 className="detailC">Id: {Object.keys(country).length && country.id}</h3>
+                    <h3 className="detailC">ID: {Object.keys(country).length && country.id}</h3>
 
-                    <h3>Continente: {Object.keys(country).length && country.continent}</h3>
+                    <h3 className="detailC">Continente: {Object.keys(country).length && country.continent}</h3>
 
                     <h3 className="detailC">Poblacion: {Object.keys(country).length && country.poblacion}</h3>
 

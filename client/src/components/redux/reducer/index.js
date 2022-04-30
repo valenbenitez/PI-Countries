@@ -10,7 +10,8 @@ import {
     FILTER_BY_CONT,
     GET_ACTIVITIES,
     FILTER_BY_ACT,
-    RESET_COUNTRY
+    RESET_COUNTRY,
+    DELETE_COUNTRY
 } from "../actions/index"
 
 const initialState = {
@@ -27,6 +28,11 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 countries: action.payload.slice(),
                 countriesCopy: action.payload.slice()
+            }
+
+        case DELETE_COUNTRY:
+            return {
+                ...state
             }
 
         case GET_COUNTRY:
@@ -51,7 +57,7 @@ const rootReducer = (state = initialState, action) => {
             }
         case ORDER_BY_POP:
 
-            if(action.payload === 'All'){
+            if (action.payload === 'All') {
                 return {
                     ...state,
                     countries: state.countriesCopy
@@ -65,7 +71,7 @@ const rootReducer = (state = initialState, action) => {
                     return -1;
                 }
                 return 0
-            }) : 
+            }) :
                 state.countries.sort((a, b) => {
                     if (a.poblacion > b.poblacion) {
                         return -1;
@@ -83,13 +89,13 @@ const rootReducer = (state = initialState, action) => {
             }
 
         case ORDER_BY_NAME:
-            if(action.payload === 'All'){
+            if (action.payload === 'All') {
                 return {
                     ...state,
                     countries: state.countriesCopy
                 }
             }
-            
+
             let orderByNm = action.payload === 'az' ? state.countries.sort((a, b) => {
                 if (a.name < b.name) {
                     return -1
@@ -138,10 +144,12 @@ const rootReducer = (state = initialState, action) => {
             }
 
         case RESET_COUNTRY:
-            return{
+            return {
                 ...state,
-                country:{}
+                country: {}
             }
+
+
 
         default:
             return {
