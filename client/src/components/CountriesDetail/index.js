@@ -4,12 +4,15 @@ import NavBar from "../NavBar/Navbar"
 import { getCountry, resetCountryDetail /*getCountryQuery, searchCountry*/ } from "../redux/actions/index"
 import './detail.css'
 import { deleteAct } from "../redux/actions/index"
+import { useHistory } from "react-router-dom"
+import { Button } from "react-bootstrap"
 
 const CountryDetail = (props) => {
 
     var dispatch = useDispatch()
     var country = useSelector((state) => state.country)
     var activities = useSelector((state)=>state.activities)
+    var history = useHistory()
 
     React.useEffect(() => {
         dispatch(getCountry(props.match.params.id))
@@ -19,6 +22,8 @@ const CountryDetail = (props) => {
 
     function onClickDel(e){
         dispatch(deleteAct(e.target.value))
+        alert('Actividad borrada')
+        history.push('/countries')
     }
     // React.useEffect(() => {
     //      console.log(country)
@@ -37,9 +42,9 @@ const CountryDetail = (props) => {
             <NavBar />
             <div className="detailContainer">
 
-                <img className="banderaDetail" src={country.flag} alt="flag not found" />
 
                 <div className="detailContent">
+                <img className="banderaDetail" src={country.flag} alt="flag not found" />
                     <h3 className="detailC">Pais: {Object.keys(country).length && country.name}</h3>
 
                     <h3 className="detailC">Capital: {Object.keys(country).length && country.capital}</h3>
@@ -53,17 +58,18 @@ const CountryDetail = (props) => {
                     <h3 className="detailC">Area: {Object.keys(country).length && country.area} km²</h3>
 
                     <div >
-                        <h3 className="detailC">Actividades: {country.activities ? country.activities.map(a => (
+                        {country.activities ? country.activities.map(a => (
                             <div className="Pp">
+                                <h3>Actividades: </h3>
                                 <p key={a.id}>Nombre de la act: {a.name}</p>
                                 <p key={a.id}>Dificultad: {a.dificultad}</p>
                                 <p key={a.id}>Duracion: {a.duracion}HS</p>
                                 <p key={a.id}>Temporada: {a.temporada}</p>
-                                <button value={a.id} onClick={(e) => onClickDel(e)}>Borrar actividad</button>
+                                <Button variant="outline-danger" value={a.id} onClick={(e) => onClickDel(e)}>Borrar actividad</Button>
                             </div>
                         ))
                             : <p>Loading...</p>
-                        }</h3>
+                        }
                     </div>
                 </div>
 

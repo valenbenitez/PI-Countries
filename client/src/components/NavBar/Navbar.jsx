@@ -22,7 +22,7 @@ export default function NavBar() {
         <Nav.Link href="/countries">Home</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link href='/create'>Crear actividad</Nav.Link>
+        <Nav.Link className="createAct" href='/create'>Crear actividad</Nav.Link>
       </Nav.Item>
       <SearchBar /*className="search"*/ />
     </Nav>

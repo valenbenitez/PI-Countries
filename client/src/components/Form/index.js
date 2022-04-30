@@ -4,15 +4,10 @@ import { useHistory } from 'react-router-dom'
 import InputForm from '../InputForm/InputForm'
 import NavBar from '../NavBar/Navbar'
 import { getAllCountries, postActivity } from '../redux/actions'
-// import { useEffect } from 'react'
+import { Button } from "react-bootstrap"
+// import Modal1 from '../Modal/Modal'
 import './form.css'
-import {Button} from "react-bootstrap"
 
-// name: "",
-// dificultad: 1,
-// duracion: "",
-// temporada: "",
-// Country: [],
 
 function validate(input) {
     let errors = {}
@@ -24,10 +19,10 @@ function validate(input) {
     if (!input.duracion) {
         errors.duracion = "Debe completar este campo"
     }
-    if(input.duracion < 1){
+    if (input.duracion < 1) {
         errors.duracion = "Valor debe ser mayor a 1"
     }
-    if(input.duracion > 24){
+    if (input.duracion > 24) {
         errors.duracion = "Debe ser menor a 24hs"
     }
     if (!input.temporada) {
@@ -45,6 +40,12 @@ const Form = () => {
     const history = useHistory()
     const countries = useSelector(state => state.countries)
     const [errors, setErrors] = useState('')
+
+    // const [show, setShow] = useState(false)
+    // const handleClose = () => setShow(false);
+    // const handleShow = () => setShow(true);
+
+
 
     useEffect(() => {
         dispatch(getAllCountries());
@@ -82,20 +83,12 @@ const Form = () => {
     }
 
 
-    // if(input.Country.includes(e.target.value)){
-    //     alert('ejemplo')
-    // }
-
     function handleSelect(e) {
 
-        // if(!input.Country.includes(e.target.value))
-            setInput({
-                ...input,
-                Country: [...input.Country, e.target.value.split(',')[0]]
-            })
-        // }else{
-        //     alert("ejemplo")
-        // }
+        setInput({
+            ...input,
+            Country: [...input.Country, e.target.value.split(',')[0]]
+        })
 
     }
 
@@ -104,7 +97,8 @@ const Form = () => {
         if (input.name === "" || input.duracion === "" || input.temporada === "" || input.Country.length === 0 || input.duracion < 1 || input.duracion > 24) return alert('Completar todos los campos porfavor')
 
         dispatch(postActivity(input))
-        alert('Actividad creada correctamente :)')
+        alert('Actividad creada correctamente')
+        // handleShow()
         setInput({
             name: "",
             dificultad: 1,
@@ -195,10 +189,10 @@ const Form = () => {
                                 {input.Country.map(el => <button type='reset' onClick={() => handleDelete(el)}>{el} | X</button>)}
                             </div> */}
                             <div>
-                                {input.Country.map(el => <Button variant="outline-danger" type='reset' onClick={()=> handleDelete(el)}>{el} | X</Button> )}
+                                {input.Country.map(el => <Button variant="outline-danger" type='reset' onClick={() => handleDelete(el)}>{el} | X</Button>)}
                             </div>
 
-                             {/* {' '} */}
+                            {/* {' '} */}
                             <input className='buttonSubmit' type='submit' value='Submit'></input>
                         </div>
                     </form>
@@ -209,3 +203,9 @@ const Form = () => {
 }
 
 export default Form
+{/* <Modal1
+    show={show}
+    titulo={"Countries"}
+    contenido={"Actividad borrada correctamente"}
+    button1={"Guardar cambios"} onClick={handleClose}
+/> */}
