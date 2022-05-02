@@ -14,17 +14,22 @@ export default function NavBar() {
     //         <SearchBar/>
     //     {/* </nav> */}
     // </div>
-    <Nav className="navBarConteiner"
+    <Nav
+      className="navBarConteiner"
       activeKey="/home"
-    //   onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
+      //   onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
     >
-      <Nav.Item>
-        <Nav.Link href="/countries">Home</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link className="createAct" href='/create'>Crear actividad</Nav.Link>
-      </Nav.Item>
-      <SearchBar /*className="search"*/ />
+      <div className="homeAndCreate">
+        <Nav.Item>
+          <Link to={"/countries"}>Home</Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Link className="createAct" to={"/create"}>
+            Crear actividad
+          </Link>
+        </Nav.Item>
+      </div>
+        <SearchBar /*className="search"*/ />
     </Nav>
   );
 }

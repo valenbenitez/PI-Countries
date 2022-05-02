@@ -1,4 +1,4 @@
-@media screen and (min-width: 400px) {
+/* @media screen and (min-width: 400px) {
   .contenedorCont {
     display: flex;
     align-items: center;
@@ -20,9 +20,9 @@
     gap: 50px;
     margin-top: 15px;
   }
-}
+} */
 
-@media screen and (min-width: 600px) {
+/* @media screen and (min-width: 600px) { */
   /* .cardConteiner {
     background-color: darkgray;
     width: auto;
@@ -41,10 +41,10 @@
     /* transition-duration: 0.8s; */
     /* border-top: 10px solid #11071e; */
   /* }  */
-  .contenedorCont{
-    width: 28%;
-  }
-}
+  /* .contenedorCont{ */
+    /* width: 28%; */
+  /* } */
+/* } */
 
 .contenedorCont {
   display: flex;
@@ -117,6 +117,37 @@
   padding-left: 15px;
   margin: 1.2rem 0 0 0;
   text-decoration: none;
+}
+
+
+.card1{
+  margin: 20px;
+  padding: 30px;
+  transition-duration: 3s;
+}
+
+@media screen and (min-width:700px) {
+  .card1{
+    width: 1000px;
+  }
+  
+}
+
+.card1:hover{
+  background-color: darkgray;
+  color: white;
+  transform: scale(1.1);
+}
+
+@media screen and (min-width: 400px) {
+  .card1{
+    padding: 50px;
+    width: 300px;
+  }
+  .imgCard{
+    border-radius: 10px;
+    height: 120px;
+  }
 }
 
 /* @media screen and (min-width: 600px) {

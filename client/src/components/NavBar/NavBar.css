@@ -30,5 +30,26 @@
   /* justify-content: space-a; */
   /* font-weight: bold; */
 }
+@media  screen and (min-width:700px) {
+    
+    .homeAndCreate{
+        display: flex;
+        flex-direction: row;
+        padding: 10px;
+    }
+    .homeAndCreate a{
+        padding: 10px;
+    }
+    .homeAndCreate a:hover{
+        text-decoration: none;
+    }
+}
+
+
+/* @media screen and (min-width: 700px) {
+    .createAct{
+        margin-right: 900px;
+    }
+} */
 
 

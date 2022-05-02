@@ -1,33 +1,61 @@
 import React, { Component } from "react"
-// import {connect} from "react-redux"
 import { Link } from "react-router-dom"
 import './card.css'
-// import { Card, CardGroup, Image } from "react-bootstrap"
+// import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { autocompleteClasses, Button, CardActionArea, CardActions } from '@mui/material';
+
 
 export class CountryCard extends Component {
     render() {
         return (
 
-            <div className="contenedorCont" >
+            // <div className="contenedorCont" >
 
-                <div className="cardConteiner">
+            //     <div className="cardConteiner">
 
-                    <h3 className="h3" >{this.props.name}</h3>
+            //         <h3 className="h3" >{this.props.name}</h3>
 
-                    <div className="contContent">
+            //         <div className="contContent">
 
-                        <img className="imgCard" src={this.props.flag} alt="flag not found" />
+            //             <img className="imgCard" src={this.props.flag} alt="flag not found" />
 
-                        <h5 >Continente: {this.props.continent}</h5>
+            //             <h5 >Continente: {this.props.continent}</h5>
 
-                        <h5 >Detalle: <Link to={`/countries/${this.props.id}`}>Click aqui</Link></h5>
+            //             <h5 >Detalle: <Link to={`/countries/${this.props.id}`}>Click aqui</Link></h5>
 
-                    </div>
-                </div>
+            //         </div>
+            //     </div>
 
-             </div>
+            // </div>
 
-
+            <Card className="card1" sx={{ maxWidth: 345,}}>
+            <CardActionArea>
+              <CardMedia className="imgCard" 
+                component="img"
+                height="130"
+                image={this.props.flag}
+                alt="flag not found :/"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {this.props.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {this.props.continent}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+             <Button size="small" color="primary"><Link to={`/countries/${this.props.id}`}>
+                Detail
+                </Link></Button>
+            </CardActions>
+          </Card>
+            
         )
     }
 }

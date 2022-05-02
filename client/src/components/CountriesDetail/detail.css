@@ -64,8 +64,9 @@ body{
 
 @media screen and (max-width: 450px){
   .detailContainer{
-    margin: auto;
+    margin: 25px auto;
     padding: 10px;
+    width: 80%;
   }
 }
   /* .nameDetail{
