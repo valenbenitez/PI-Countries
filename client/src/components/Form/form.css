@@ -51,7 +51,8 @@
 
 .rangeFrm {
   /* margin-top: 17px; */
-  padding-right: 90px;
+  /* padding-right: 300px; */
+  
 }
 
 /* .inputt {
@@ -101,4 +102,25 @@
   margin-right: 5px;
   border-radius: 5px;
   border: none;
+}
+
+.Container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 30px auto;
+}
+
+.DivX{
+  margin: 30px auto;
+  width: 60%;
+}
+
+.save{
+  padding-top: 50px;
+}
+.btnP{
+  margin-top: 10px;
 }

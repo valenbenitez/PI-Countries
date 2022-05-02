@@ -4,9 +4,22 @@ import { useHistory } from 'react-router-dom'
 import InputForm from '../InputForm/InputForm'
 import NavBar from '../NavBar/Navbar'
 import { getAllCountries, postActivity } from '../redux/actions'
-import { Button } from "react-bootstrap"
+// import Button from "react-bootstrap/Button"
 // import Modal1 from '../Modal/Modal'
 import './form.css'
+
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
+// import Stack from '@mui/material/Stack';
+
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 
 function validate(input) {
@@ -111,13 +124,24 @@ const Form = () => {
     }
 
     return (
-        <div>
+
+        //     <React.Fragment>
+        //     <CssBaseline />
+        //     <Container fixed>
+        //       <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }} />
+        //     </Container>
+        //   </React.Fragment>
+
+        <React.Fragment>
+            <CssBaseline />
             <NavBar />
-            <div className='divForm'>
-                <div >
-                    <form className='formIn' onSubmit={(e) => handleSubmit(e)}>
+            {/* <div className='divForm'> */}
+            <Container fixed>
+                <Box sx={{ bgcolor: 'darkgray', height: '120vh' }}>
+                    {/* <div > */}
+                    <form /*className='formIn'*/ className='Container' onSubmit={(e) => handleSubmit(e)}>
                         <br />
-                        <div>
+                        <div className='DivX'>
                             {errors.name && <label className='labelError'>{errors.name}</label>}
                             <InputForm
                                 tipo="text"
@@ -130,7 +154,7 @@ const Form = () => {
                             />
 
                         </div>
-                        <div className="rangeFrm">
+                        <div className="rangeFrm DivX">
                             <InputForm
                                 tipo="range"
                                 min="1"
@@ -146,7 +170,7 @@ const Form = () => {
                             />
                         </div>
 
-                        <div>
+                        <div className='DivX'>
                             {errors.duracion && <label className='labelError'>{errors.duracion}</label>}
                             <InputForm
                                 tipo="number"
@@ -158,9 +182,10 @@ const Form = () => {
                             // error="No debe incluir numeros ni caracteres especiales :/"
                             />
                         </div>
-                        <div>
+                        <div className='DivX'>
                             {errors.temporada && <label className='labelError'>{errors.temporada}</label>}
                             <label>Estacion: </label>
+
                             <select className="optionCn"
                                 name="temporada"
                                 value={input.temporada}
@@ -172,33 +197,51 @@ const Form = () => {
                                 <option value={"summer"}>Summer/Verano</option>
                                 <option value={"autumn"}>Autumn/Otoño</option>
                             </select> <br />
+
+
                         </div>
 
 
 
-                        <div>
-                            <label>Paises: </label>
-                            <select className="optionCn" onChange={e => handleSelect(e)}>
-                                {/* <option>Paises</option> */}
-                                {countries.map((pai) => (
-                                    <option value={`${pai.id},${pai.name}`}>{pai.name}</option>
-                                ))}
-                            </select>
-                            {/* NO MUESTRA NOMBRE */}
-                            {/* <div>
-                                {input.Country.map(el => <button type='reset' onClick={() => handleDelete(el)}>{el} | X</button>)}
-                            </div> */}
-                            <div>
-                                {input.Country.map(el => <Button variant="outline-danger" type='reset' onClick={() => handleDelete(el)}>{el} | X</Button>)}
-                            </div>
+                        <div className='DivX'>
+                            {/* <label>Paises: </label> */}
 
-                            {/* {' '} */}
-                            <input className='buttonSubmit' type='submit' value='Submit'></input>
+                            {/* <select className="optionCn" onChange={e => handleSelect(e)}> */}
+                            <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                                <InputLabel id="demo-simple-select-standard-label">Paises</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-standard-label"
+                                    id="demo-simple-select-standard"
+                                    // value={id}
+                                    onChange={e => handleSelect(e)}
+                                    label="Age"
+                                >
+                                    {/* <option>Paises</option> */}
+                                    {countries.map((pai) => (
+                                        <MenuItem value={`${pai.id},${pai.name}`}>{pai.name}</MenuItem>
+                                    ))}
+                                </Select>
+                            <div className='btnP'>
+                                {input.Country.map(el => <Button variant="outlined" color="error" type='reset' onClick={() => handleDelete(el)}>{el} | X</Button>)}
+                            </div>
+                            </FormControl>
+                            {/* </select> */}
+
+
+                            {/* <input className='buttonSubmit' type='submit' value='Submit'></input> */}
+                            <div className='DivX'>
+                                <Button className='save' type='submit' variant="contained" endIcon={<SendIcon />}>
+                                    Save
+                                </Button>
+                            </div>
                         </div>
                     </form>
-                </div>
-            </div>
-        </div>
+                    {/* </div> */}
+                </Box>
+            </Container>
+            {/* </div> */}
+        </React.Fragment>
+
     )
 }
 

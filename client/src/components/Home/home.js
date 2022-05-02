@@ -6,6 +6,11 @@ import { orderByPop } from "../redux/actions/index";
 import { Paginacion } from "../Paginado/Paginacion";
 import './home.css'
 
+// import InputLabel from '@mui/material/InputLabel';
+// import MenuItem from '@mui/material/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+// import Select from '@mui/material/Select';
+
 export default function Countries() {
 
     const dispatch = useDispatch()
@@ -14,7 +19,7 @@ export default function Countries() {
     const [, setOrder] = useState('')
 
     const [pagina, setPagina] = useState(1)
-    const [porPagina, setPorPagina] = useState(10)
+    const [porPagina,] = useState(10)
 
     const lastCountry = pagina * porPagina
     const firstCountry = lastCountry - porPagina
@@ -73,7 +78,7 @@ export default function Countries() {
         <div className="Pape" >
             <div className="filtersAndSorts">
                 <div>
-                    <span>Order by population </span>
+                    <span className="spaN">Order by population </span>
                     <select className='selecti' onChange={(e) => handleSelectPop(e)} >
                         <option value='All' >All</option>
                         <option value='asc'>ASC</option>
@@ -82,7 +87,7 @@ export default function Countries() {
                 </div>
 
                 <div>
-                    <span>Order by name </span>
+                    <span className="spaN">Order by name </span>
                     <select className='selecti' onChange={(e) => handleSelectName(e)}>
                         <option value='All' >All</option>
                         <option value='az'>A-Z</option>
@@ -91,7 +96,7 @@ export default function Countries() {
                 </div>
 
                 <div>
-                    <label>Filter by continent </label>
+                    <span>Filter by continent </span>
                     <select className='selecti' onChange={(e) => handleSelectCont(e)}>
                         <option value='All' >All</option>
                         <option value='Africa' >Africa</option>
@@ -104,7 +109,7 @@ export default function Countries() {
                 </div>
 
                 <div>
-                    <label>Filter by actividades </label>
+                    <span>Filter by actividades </span>
                     <select className='selecti' onChange={(e) => handleSelectFilterAct(e)}>
                         <option value='All'>All</option>
                         {activities.length && activities.map(el => {

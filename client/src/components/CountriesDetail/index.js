@@ -11,8 +11,8 @@ const CountryDetail = (props) => {
 
     var dispatch = useDispatch()
     var country = useSelector((state) => state.country)
-    var activities = useSelector((state)=>state.activities)
     var history = useHistory()
+    // var activities = useSelector((state)=>state.activities)
 
     React.useEffect(() => {
         dispatch(getCountry(props.match.params.id))

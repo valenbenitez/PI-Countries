@@ -1,8 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import SearchBar from "../SearchBar";
 import "./NavBar.css";
-import { Nav } from "react-bootstrap";
+
+import HomeIcon from "@mui/icons-material/Home";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import AddIcon from "@mui/icons-material/Add";
+
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import { IconButton } from "@mui/material";
 
 export default function NavBar() {
   return (
@@ -14,22 +22,66 @@ export default function NavBar() {
     //         <SearchBar/>
     //     {/* </nav> */}
     // </div>
-    <Nav
-      className="navBarConteiner"
-      activeKey="/home"
-      //   onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
-    >
-      <div className="homeAndCreate">
-        <Nav.Item>
-          <Link to={"/countries"}>Home</Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Link className="createAct" to={"/create"}>
-            Crear actividad
-          </Link>
-        </Nav.Item>
-      </div>
-        <SearchBar /*className="search"*/ />
-    </Nav>
+
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar className="appbar">
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2 }}
+          >
+            <NavLink to={"/countries"}>
+              <BottomNavigationAction
+                label="Home"
+                value="home"
+                icon={<HomeIcon className="Icon" />}
+              />
+            </NavLink>
+          </IconButton>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2 }}
+          >
+            <NavLink to={"/create"}>
+              <BottomNavigationAction
+                label="Home"
+                value="home"
+                icon={<AddIcon className="Icon" />}
+              />
+            </NavLink>
+          </IconButton>
+
+          <SearchBar />
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
+}
+
+{
+  /* <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton> */
+}
+{
+  /* <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+          >
+            
+          </Typography> */
 }

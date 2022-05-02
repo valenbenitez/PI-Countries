@@ -134,9 +134,9 @@
 }
 
 .card1:hover{
-  background-color: darkgray;
-  color: white;
-  transform: scale(1.1);
+  background-color: rgb(244, 244, 244);
+  /* color: white; */
+  transform: scale(1.01);
 }
 
 @media screen and (min-width: 400px) {

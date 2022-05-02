@@ -2,6 +2,11 @@ import React from "react";
 import './InputForm.css'
 import { Form } from "react-bootstrap";
 
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+
+
+
 const InputForm = ({ tipo, label, placeholder, name, error, value, onChange, min, max, step }) => {
 
     if (tipo === "range") return (
@@ -35,32 +40,28 @@ const InputForm = ({ tipo, label, placeholder, name, error, value, onChange, min
         //     <p>{error}</p>
         // </main>
 
-        <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+        // <Form>
+        //     <Form.Group className="mb-3" controlId="formBasicEmail">
 
-                <Form.Label>{label}</Form.Label>
-                <Form.Control type={tipo} placeholder={placeholder} name={name} value={value} onChange={onChange} />
-                {/* <Form.Text className="text-muted">
-                    <p>{error}</p>
-                </Form.Text> */}
+        //         <Form.Label>{label}</Form.Label>
+        //         <Form.Control type={tipo} placeholder={placeholder} name={name} value={value} onChange={onChange} />
+        //         {/* <Form.Text className="text-muted">
+        //             <p>{error}</p>
+        //         </Form.Text> */}
 
-            </Form.Group>
-
-            {/* <Form.Group className="mb-3" controlId="formBasicPassword">
-
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
-
-            </Form.Group> */}
-
-            {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group> */}
-
-            {/* <Button variant="primary" type="submit">
-                Submit
-            </Button> */}
-        </Form>
+        //     </Form.Group>
+        // </Form>
+        <Box
+            component="form"
+            sx={{
+                '& > :not(style)': { m: 1, width: '25ch' },
+            }}
+            noValidate
+            autoComplete="off"
+        >
+            <TextField id="standard-basic" label={label } variant="standard" name={name} value={value} onChange={onChange} />
+            <p>{error}</p>
+        </Box>
     )
 }
 
